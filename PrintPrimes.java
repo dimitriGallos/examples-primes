@@ -38,14 +38,14 @@ public class PrintPrimes {
 
       int currentNumber = 1;
       int ORD = 2;
-      int SQUARE = 9;
+      int squareOfPrimeFactor = 9;
 
       for(int primesFoundSoFar = 1; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
           currentNumber = currentNumber + 2;
-          if (currentNumber == SQUARE) {
+          if (currentNumber == squareOfPrimeFactor) {
             ORD = ORD + 1;
-            SQUARE = listOfPrimes[ORD] * listOfPrimes[ORD];
+            squareOfPrimeFactor = listOfPrimes[ORD] * listOfPrimes[ORD];
             MULT[ORD - 1] = currentNumber;
           }
           N = 2;
