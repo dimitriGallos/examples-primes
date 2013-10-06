@@ -3,20 +3,18 @@ public class PrintPrimes {
   int primesPerColumn;
   int columnsPerPage;
   int WW;
-  int ORDMAX;
   int listOfPrimes[];
 
-  public PrintPrimes(int numberOfPrimes, int primesPerColumn, int columnsPerPage, int ORDMAX) {
+  public PrintPrimes(int numberOfPrimes, int primesPerColumn, int columnsPerPage ) {
     this.numberOfPrimes   = numberOfPrimes;
     this.primesPerColumn  = primesPerColumn;
     this.columnsPerPage  = columnsPerPage;
-    this.ORDMAX = ORDMAX;
     this.listOfPrimes = new int[numberOfPrimes + 1];
   }
 
 
   public static void main(String[] args) {
-      PrintPrimes printPrimes = new PrintPrimes(300, 50, 4, 30);
+      PrintPrimes printPrimes = new PrintPrimes(300, 50, 4 );
       printPrimes.calculatePrimes();
       printPrimes.printPrimes();
   }
