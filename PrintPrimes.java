@@ -34,7 +34,7 @@ public class PrintPrimes {
   private void calculateOddPrimes() {
       boolean isPrime;
       int N;
-      int MULT[] = new int[ORDMAX + 1];
+      
 
       int currentNumber = 1;
       int indexOfSmallestPrimeFactor = 2;
@@ -46,7 +46,6 @@ public class PrintPrimes {
           if (currentNumber == squareOfPrimeFactor) {
             indexOfSmallestPrimeFactor = indexOfSmallestPrimeFactor + 1;
             squareOfPrimeFactor = listOfPrimes[indexOfSmallestPrimeFactor] * listOfPrimes[indexOfSmallestPrimeFactor];
-            MULT[indexOfSmallestPrimeFactor - 1] = currentNumber;
           }
           isPrime = true;
           for (N=1; N < indexOfSmallestPrimeFactor && isPrime;N++) {
