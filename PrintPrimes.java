@@ -2,7 +2,6 @@ public class PrintPrimes {
   int numberOfPrimes;
   int primesPerColumn;
   int columnsPerPage;
-  int WW;
   int listOfPrimes[];
 
   public PrintPrimes(int numberOfPrimes, int primesPerColumn, int columnsPerPage ) {
