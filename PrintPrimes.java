@@ -32,32 +32,32 @@ public class PrintPrimes {
   }
 
   private void calculateOddPrimes() {
-      boolean isPrime=false;
+      boolean isPrime;
       int N;
       int MULT[] = new int[ORDMAX + 1];
 
       int currentNumber = 1;
       int indexOfSmallestPrimeFactor = 2;
       int squareOfPrimeFactor = 9;
-     
-      while (!isPrime) {
-    	  for(int primesFoundSoFar = 1; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
-    		  currentNumber = currentNumber + 2;
-    		  if (currentNumber == squareOfPrimeFactor) {
-    			  indexOfSmallestPrimeFactor = indexOfSmallestPrimeFactor + 1;
-    			  squareOfPrimeFactor = listOfPrimes[indexOfSmallestPrimeFactor] * listOfPrimes[indexOfSmallestPrimeFactor];
-    			  MULT[indexOfSmallestPrimeFactor - 1] = currentNumber;
-    		  }
-    		  isPrime = true;
-    		  for (N=2; N < indexOfSmallestPrimeFactor && isPrime;N++) {
-    			  while (MULT[N] < currentNumber)
-    				  MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
-    			  if (MULT[N] == currentNumber)
-    				  isPrime = false;
-    		  }
-    		  listOfPrimes[primesFoundSoFar] = currentNumber;
-    	  }
-       }
+
+      for(int primesFoundSoFar = 1; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
+        do {
+          currentNumber = currentNumber + 2;
+          if (currentNumber == squareOfPrimeFactor) {
+            indexOfSmallestPrimeFactor = indexOfSmallestPrimeFactor + 1;
+            squareOfPrimeFactor = listOfPrimes[indexOfSmallestPrimeFactor] * listOfPrimes[indexOfSmallestPrimeFactor];
+            MULT[indexOfSmallestPrimeFactor - 1] = currentNumber;
+          }
+          isPrime = true;
+          for (N=2; N < indexOfSmallestPrimeFactor && isPrime;N++) {
+            while (MULT[N] < currentNumber)
+              MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
+            if (MULT[N] == currentNumber)
+              isPrime = false;
+          }
+        } while (!isPrime);
+        listOfPrimes[primesFoundSoFar] = currentNumber;
+      }
     }
 
     public void printPrimes() {
