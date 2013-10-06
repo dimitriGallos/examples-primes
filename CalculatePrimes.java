@@ -1,11 +1,12 @@
 public class CalculatePrimes {
-	int numberOfPrimes;;
+	int numberOfPrimes;
 	int[] listOfPrimes;
 	
 	public CalculatePrimes (int numberOfPrimes, int[] listOfPrimes ){
 		this.numberOfPrimes = numberOfPrimes;
 		this.listOfPrimes = listOfPrimes;
 	}
+	
 	
 	public void calculatePrimes() {
 	      /* Two is the only even prime. All other prime numbers are odd.
@@ -15,7 +16,7 @@ public class CalculatePrimes {
 		listOfPrimes[1] = 2;
 		calculateOddPrimes();
 	}
-
+		//Uses sieve of Aratosthenes algorithm to find Prime numbers
 		private void calculateOddPrimes() {
 			boolean isPrime;
 	        int primeListIndex;
