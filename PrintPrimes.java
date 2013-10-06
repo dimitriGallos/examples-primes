@@ -32,32 +32,32 @@ public class PrintPrimes {
   }
 
   private void calculateOddPrimes() {
-      boolean isPrime;
+      boolean isPrime=false;
       int N;
       int MULT[] = new int[ORDMAX + 1];
 
       int currentNumber = 1;
       int ORD = 2;
       int squareOfPrimeFactor = 9;
-
-      for(int primesFoundSoFar = 1; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
-        do {
-          currentNumber = currentNumber + 2;
-          if (currentNumber == squareOfPrimeFactor) {
-            ORD = ORD + 1;
-            squareOfPrimeFactor = listOfPrimes[ORD] * listOfPrimes[ORD];
-            MULT[ORD - 1] = currentNumber;
-          }
-          isPrime = true;
-          for (N=2; N < ORD && isPrime;N++) {
-            while (MULT[N] < currentNumber)
-              MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
-            if (MULT[N] == currentNumber)
-              isPrime = false;
-          }
-        } while (!isPrime);
-        listOfPrimes[primesFoundSoFar] = currentNumber;
-      }
+     
+      while (!isPrime) {
+    	  for(int primesFoundSoFar = 1; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
+    		  currentNumber = currentNumber + 2;
+    		  if (currentNumber == squareOfPrimeFactor) {
+    			  ORD = ORD + 1;
+    			  squareOfPrimeFactor = listOfPrimes[ORD] * listOfPrimes[ORD];
+    			  MULT[ORD - 1] = currentNumber;
+    		  }
+    		  isPrime = true;
+    		  for (N=2; N < ORD && isPrime;N++) {
+    			  while (MULT[N] < currentNumber)
+    				  MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
+    			  if (MULT[N] == currentNumber)
+    				  isPrime = false;
+    		  }
+    		  listOfPrimes[primesFoundSoFar] = currentNumber;
+    	  }
+       }
     }
 
     public void printPrimes() {
