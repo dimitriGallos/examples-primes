@@ -40,7 +40,7 @@ public class PrintPrimes {
       int indexOfSmallestPrimeFactor = 2;
       int squareOfPrimeFactor = 9;
 
-      for(int primesFoundSoFar = 1; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
+      for(int primesFoundSoFar = 1; primesFoundSoFar < numberOfPrimes; primesFoundSoFar++) {
         do {
           currentNumber = currentNumber + 2;
           if (currentNumber == squareOfPrimeFactor) {
@@ -55,7 +55,7 @@ public class PrintPrimes {
         	  }
           }
         } while (!isPrime);
-        listOfPrimes[primesFoundSoFar] = currentNumber;
+        listOfPrimes[primesFoundSoFar + 1] = currentNumber;
       }
   }
 
