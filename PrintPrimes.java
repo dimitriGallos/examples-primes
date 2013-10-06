@@ -30,7 +30,7 @@ public class PrintPrimes {
 
   private void calculateOddPrimes() {
       boolean isPrime;
-      int N;
+      int primeListIndex;
       
 
       int currentNumber = 1;
@@ -45,8 +45,8 @@ public class PrintPrimes {
             squareOfPrimeFactor = listOfPrimes[indexOfSmallestPrimeFactor] * listOfPrimes[indexOfSmallestPrimeFactor];
           }
           isPrime = true;
-          for (N=1; N < indexOfSmallestPrimeFactor && isPrime;N++) {
-        	  if (currentNumber % listOfPrimes[N] == 0) {
+          for (primeListIndex=1; primeListIndex < indexOfSmallestPrimeFactor && isPrime;primeListIndex++) {
+        	  if (currentNumber % listOfPrimes[primeListIndex] == 0) {
                   isPrime = false;
         	  }
           }
