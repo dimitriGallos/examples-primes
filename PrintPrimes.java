@@ -49,16 +49,15 @@ public class PrintPrimes {
             MULT[indexOfSmallestPrimeFactor - 1] = currentNumber;
           }
           isPrime = true;
-          for (N=2; N < indexOfSmallestPrimeFactor && isPrime;N++) {
-            while (MULT[N] < currentNumber)
-              MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
-            if (MULT[N] == currentNumber)
-              isPrime = false;
+          for (N=1; N < indexOfSmallestPrimeFactor && isPrime;N++) {
+        	  if (currentNumber % listOfPrimes[N] == 0) {
+                  isPrime = false;
+        	  }
           }
         } while (!isPrime);
         listOfPrimes[primesFoundSoFar] = currentNumber;
       }
-    }
+  }
 
     public void printPrimes() {
         int pageNumber = 1;
