@@ -48,14 +48,12 @@ public class PrintPrimes {
             squareOfPrimeFactor = listOfPrimes[ORD] * listOfPrimes[ORD];
             MULT[ORD - 1] = currentNumber;
           }
-          N = 2;
           isPrime = true;
-          while (N < ORD && isPrime) {
+          for (N=2; N < ORD && isPrime;N++) {
             while (MULT[N] < currentNumber)
               MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
             if (MULT[N] == currentNumber)
               isPrime = false;
-            N = N + 1;
           }
         } while (!isPrime);
         listOfPrimes[primesFoundSoFar] = currentNumber;
