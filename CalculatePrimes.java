@@ -18,21 +18,21 @@ public class CalculatePrimes {
 		calculateOddPrimes();
 	}
 		//Uses sieve of Aratosthenes algorithm to find Prime numbers
-		private void calculateOddPrimes() {
-			boolean isPrime;
-	        int primeListIndex;
+	private void calculateOddPrimes() {
+		boolean isPrime;
+	    int primeListIndex;
 	      
 
-	        int currentNumber = 1;
-	        int indexOfSmallestPrimeFactor = 2;
-	        int squareOfPrimeFactor = 9;
+	    int currentNumber = 1;
+	    int indexOfSmallestPrimeFactor = 2;
+	    int squareOfPrimeFactor = 9;
 
-	        for(int primesFoundSoFar = 1; primesFoundSoFar < numberOfPrimes; primesFoundSoFar++) {
-	        	do {
+	    for(int primesFoundSoFar = 1; primesFoundSoFar < numberOfPrimes; primesFoundSoFar++) {
+	    	do {
 	            currentNumber = currentNumber + 2;
 	            if (currentNumber == squareOfPrimeFactor) {
-	            indexOfSmallestPrimeFactor = indexOfSmallestPrimeFactor + 1;
-	            squareOfPrimeFactor = listOfPrimes[indexOfSmallestPrimeFactor] * listOfPrimes[indexOfSmallestPrimeFactor];
+	            	indexOfSmallestPrimeFactor = indexOfSmallestPrimeFactor + 1;
+	            	squareOfPrimeFactor = listOfPrimes[indexOfSmallestPrimeFactor] * listOfPrimes[indexOfSmallestPrimeFactor];
 	            }
 	            isPrime = true;
 	            for (primeListIndex=1; primeListIndex < indexOfSmallestPrimeFactor && isPrime;primeListIndex++) {
@@ -41,7 +41,7 @@ public class CalculatePrimes {
 	        	    }
 	            }
 	            } while (!isPrime);
-	            listOfPrimes[primesFoundSoFar + 1] = currentNumber;
-	        }
-	   }
+	    	listOfPrimes[primesFoundSoFar + 1] = currentNumber;
+	    }
+	}
  }
